@@ -13,7 +13,8 @@ docker build -t gpu/conda-torch-tensorflow:public .
 
 > it provide a public conda environment including `pytorch=1.6.0` and `tensorflow=2.2.0`
 > if apt update or conda install break up, may be open mirror site on sync process, wait for some minutes to retry.
-> if 
+
+if you don't need git credentials, you can simple change your root password by this command `passwd` in your remote bash terminal for your private use.
 
 ## create your own environments
 create a `your_env_file.yaml` like:
@@ -33,7 +34,7 @@ dependencies :
 conda env create -f your_env_file.yaml
 conda activate your_env_name
 ```
-if you need not git credentials, you can change your root password by this command `passwd` in your remote bash terminal.
+
 
 enjoy your environment.
 
