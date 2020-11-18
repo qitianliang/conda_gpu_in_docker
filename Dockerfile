@@ -11,6 +11,10 @@ RUN rm -rf /etc/apt/sources.list.d/
 
 # install necessary package
 RUN apt-get update && apt-get install -y sudo locales locales-all tzdata openssh-server curl wget git fontconfig
+# add Chinese fonts
+WORKDIR /usr/share/fonts
+COPY SimHei.ttf .
+RUN fc-cache -f -v
 # update the locale
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -19,10 +23,6 @@ RUN locale-gen zh_CN.UTF-8
 ENV LANG=zh_CN.UTF-8
 ENV LANGUAGE=zh_CN.UTF-8
 ENV LC_ALL=zh_CN.UTF-8
-# add Chinese fonts
-WORKDIR /usr/share/fonts
-COPY SimHei.ttf .
-RUN fc-cache -f -v
 
 # set up ssh 
 ## allow sftp connection(for file transfer in pycharm)
