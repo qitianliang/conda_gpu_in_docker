@@ -26,7 +26,7 @@ RUN mkdir /var/run/sshd
 RUN sed -ri 's@^Subsystem\s+.*@Subsystem sftp internal-sftp@' /etc/ssh/sshd_config
 RUN sed -ri 's@^#PermitRootLogin\s+.*@PermitRootLogin yes@' /etc/ssh/sshd_config
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
-## disable the ascii art text(for connect remote interpreter in pycharm)
+## disable the ascii art text(for history version pycharm can not  connect remote bash which start with ascii art text )
 # RUN rm /etc/bash.bashrc
 # temp password for root
 RUN echo "root:needupdate" | chpasswd
@@ -39,11 +39,10 @@ COPY .condarc .
 RUN conda install -y tensorflow-gpu
 RUN ln -s -f /opt/conda/bin/python /usr/bin/python
 RUN ln -s -f /opt/conda/bin/python3 /usr/bin/python3
+# ensure the known_host file can be created in ~/.ssh/ folder, root user maybe can not encounter this problem(no test),
+# however, when you creat non-root user, this folder ~/.ssh/ can not be create by ssh connection process.
+# As a result, you would retype ssh password each time you connect to this container.
 WORKDIR /root/.ssh/
-# for private git use
-# COPY  id_rsa.pub .
-# COPY id_rsa .
-
 WORKDIR /workspace
 
 CMD ["/usr/sbin/sshd", "-D"]
