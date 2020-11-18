@@ -39,7 +39,7 @@ COPY .condarc .
 RUN conda install -y tensorflow-gpu
 RUN ln -s -f /opt/conda/bin/python /usr/bin/python
 RUN ln -s -f /opt/conda/bin/python3 /usr/bin/python3
-# ensure the known_host file can be created in ~/.ssh/ folder, root user maybe can not encounter this problem(no test),
+# ensure the known_host file can be created in ~/.ssh/ folder, root user may  not encounter this problem(no test),
 # however, when you creat non-root user, this folder ~/.ssh/ can not be create by ssh connection process.
 # As a result, you would retype ssh password each time you connect to this container.
 WORKDIR /root/.ssh/
