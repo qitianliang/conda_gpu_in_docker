@@ -110,3 +110,19 @@ ssh-copy-id -f -i ~/.ssh/id_rsa_your-server your-server
 
 Enjoy your vscode.
 
+## add local persist when using `conda env create ` cause container size is very large
+
+* first install `local persist` on your server host(centos and ubuntu tested)
+```bash
+curl -fsSL https://raw.githubusercontent.com/MatchbookLab/local-persist/master/scripts/install.sh | sudo bash
+```
+
+* create your local persist to mount volume instead just mapping volume
+> `mount bind` will not override your container existed folder, if bind not exist, it will raise an error, `-v` will override this folder by local host 
+docker volume create -d local-persist -o mountpoint=/host/folder --name=host_large_folder
+
+(not test)docker run --mount type=bind,source=host_large_folder,target=/container/large/folder
+
+> portainer is recommended to create this container...
+
+
