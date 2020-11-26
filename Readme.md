@@ -51,7 +51,10 @@ docker build -f liang.dockerfile -t gpu/conda-torch-tensorflow:liang .
 [portainer](https://www.portainer.io/) recommended, here is the shell script
 
 ```bash
-docker run -d -p 10000:8888 -p 20000:22 -v your/host/path:your/container/path --name your-container-name --restart always --hostname your_virtual_hostname --runtime nvidia gpu/conda-torch-tensorflow:public
+# first create local persist for conda directory
+docker volume create -d local-persist -o mountpoint=/host/folder --name=host_large_folder
+# portainer recommended, not test
+docker run -d -p 10000:8888 -p 20000:22 -v your/host/path:your/container/path --mount type=bind,source=host_large_folder,target=/container/large/folder  --name your-container-name --restart always --hostname your_virtual_hostname --runtime nvidia gpu/conda-torch-tensorflow:public
 ```
 
 ## setup remote development environment in vscode ``local`` 
