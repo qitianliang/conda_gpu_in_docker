@@ -102,6 +102,8 @@ ssh-copy-id -f -i ~/.ssh/id_rsa_your-server your-server
 
 ### plugins: Python, Pylance(AI for python autocomplete)
 
+> note: interpreter path is base on conda path, this container is `/opt/conda/bin/python`, if you create your env, your interpreter path should like `/opt/conda/envs/your_env_name/bin/python`
+
 ## vscode tips:
 
 ### creat a file with extension `*.ipynb` will get a jupyter notebook interactive python environment
