@@ -62,12 +62,8 @@ docker run -d -p 10000:8888 -p 20000:22 -v your/host/path:your/container/path --
 
 ### save ssh key
 
-- `remote explorer` > `SSH Targets` > `Configure`(cursor on SSH TARGETS)>`~\.ssh\config`, add those lines into config
+1. `remote explorer` > `SSH Targets` > `Configure`(cursor on SSH TARGETS)>`~\.ssh\config`, add those lines into config
 
-![ssh_key](./pngs/ssh_key_.png)
-![ssh_key1](./pngs/ssh_key1_.png)
-![ssh_key2](./pngs/ssh_key2_.png)
-![ssh_key3](./pngs/ssh_key3_.png)
 ```config
 Host your-server
     User root
@@ -78,8 +74,14 @@ Host your-server
     HostName 255.255.255.255
 ```
 
+![ssh_key](./pngs/ssh_key_.png)
+![ssh_key1](./pngs/ssh_key1_.png)
+![ssh_key2](./pngs/ssh_key2_.png)
+![ssh_key3](./pngs/ssh_key3_.png)
 
-- create your rsa file for save key(avoid retype password when connect to remote).
+
+
+2. create your rsa file for save key(avoid retype password when connect to remote).
 
 ```
 ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa_your-server
@@ -91,7 +93,7 @@ ssh-copy-id -f -i ~/.ssh/id_rsa_your-server your-server
 ![ssh_key4](./pngs/ssh_key4_.png)
 
 
-    
+you can connect without retype password now.
 
 
 
