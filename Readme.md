@@ -62,14 +62,15 @@ curl -fsSL https://raw.githubusercontent.com/MatchbookLab/local-persist/master/s
 
 > `mount bind` will not override your container existed folder, if bind not exist, it will raise an error, howerver, `-v` will override this folder by local host 
 
+```
+# first create local persist for conda directory
 docker volume create -d local-persist -o mountpoint=/host/folder --name=host_large_folder
+```
 
 ### create your container
 
 ```bash
-# first create local persist for conda directory
-docker volume create -d local-persist -o mountpoint=/host/folder --name=host_large_folder
-# portainer recommended, not test
+# portainer recommended, (bash script not test)
 docker run -d -p 10000:8888 -p 20000:22 -v your/host/path:your/container/path --mount type=bind,source=host_large_folder,target=/container/large/folder  --name your-container-name --restart always --hostname your_virtual_hostname --runtime nvidia gpu/conda-torch-tensorflow:public
 ```
 > portainer is recommended to create this container...
