@@ -1,4 +1,4 @@
-# easy setup for torch and tensorflow env
+# setup for docker container + conda + vscode
 
 ## build public image
     * update ubuntu update source to tsinghua open mirror
@@ -16,27 +16,6 @@ docker build -t gpu/conda-torch-tensorflow:public .
 
 if you don't need git credentials, you can simple change your root password by this command `passwd` in your remote bash terminal for your private use.
 
-## create your own environments
-create a `your_env_file.yaml` like:
-```yaml
-name : your_env_name
-dependencies :
-  - python=3.7
-  - scikit-learn
-  - pip
-  - pip:
-    - tqdm
-```
-
-> notice the blank space between dependencies and `:` is need when you edit this file in `vi` command.
-
-```bash
-conda env create -f your_env_file.yaml
-conda activate your_env_name
-```
-
-
-enjoy your environment.
 
 ## build private image
 
@@ -120,7 +99,33 @@ ssh-copy-id -f -i ~/.ssh/id_rsa_your-server your-server
 
 ### plugins: Python, Pylance(AI for python autocomplete)
 
-> note: interpreter path is base on conda path, this container is `/opt/conda/bin/python`, if you create your env, your interpreter path should like `/opt/conda/envs/your_env_name/bin/python`
+
+## create your own environments
+create a `your_env_file.yaml` like:
+```yaml
+name : your_env_name
+dependencies :
+  - python=3.7
+  - scikit-learn
+  - pip
+  - pip:
+    - tqdm
+```
+
+> notice the blank space between dependencies and `:` is need when you edit this file in `vi` command.
+
+```bash
+conda env create -f your_env_file.yaml
+conda activate your_env_name
+# remove env
+conda env remove -n your_env_to_remove_name
+```
+
+
+## conda interpreter path 
+interpreter path is base on conda path, this container is `/opt/conda/bin/python`, if you create your env, your interpreter path should like `/opt/conda/envs/your_env_name/bin/python`
+
+enjoy your environment.
 
 ## vscode tips:
 
