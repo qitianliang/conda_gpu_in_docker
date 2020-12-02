@@ -54,6 +54,13 @@ docker run -d -p 10000:8888 -p 20000:22 -v your/host/path:your/container/path --
 ```
 > portainer is recommended to create this container...
 
+## if you need a new large dataset can be easily access in your container.
+
+*:
+```
+ln -s /in/your/host/large/dataset /your/container/map/directory/dataset
+```
+
 ## setup remote development environment in vscode ``local`` 
 
 ### plugins: Remote Development(it will install with WSL, Container, SSH and e.t.c)
