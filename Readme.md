@@ -56,9 +56,20 @@ docker run -d -p 10000:8888 -p 20000:22 -v your/host/path:your/container/path --
 
 ## if you need a new large dataset can be easily access in your container.
 
-*:
+* fast way:
 ```
 ln -s /in/your/host/large/dataset /your/container/map/directory/dataset
+```
+## if you need nas to store very large dataset
+
+* enable network folder service(NFS) and mount your nas to server.
+details see [synology.NFS](https://www.synology.com/en-us/knowledgebase/DSM/tutorial/File_Sharing/How_to_access_files_on_Synology_NAS_within_the_local_network_NFS)
+
+* pernamently mount
+```
+nano /etc/fstab
+# add this line to your fstab file
+ip:/volume1/public_dataset /nfs/public_dataset nfs defaults 0 0
 ```
 
 ## setup remote development environment in vscode ``local`` 
