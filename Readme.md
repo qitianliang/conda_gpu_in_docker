@@ -1,11 +1,12 @@
 # 设置 docker container + conda + vscode
 > 本教程旨在完成torch, tensorflow 等依赖于GPU的python虚拟环境
 ##  构建镜像（基于torch 官方镜像）
-    * 更新了ubuntu 国内源
-    * 添加了`黑体`中文
-    * 更新了ubuntu 时区`亚洲/上海`
-    * 更新conda更新源码到清华开放镜像。
-    * 将 tensorflow-gpu 添加到 conda 基础 python 解释器中。
+
+* 更新了ubuntu 国内源
+* 添加了`黑体`中文
+* 更新了ubuntu 时区`亚洲/上海`
+* 更新conda更新源码到清华开放镜像。
+* 将 tensorflow-gpu 添加到 conda 基础 python 解释器中。
 
 > 在宿主机器上构建脚本如下
 ```bash
