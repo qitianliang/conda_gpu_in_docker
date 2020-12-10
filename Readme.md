@@ -84,6 +84,12 @@ conda activate your_env_name
 # remove env
 conda env remove -n your_env_to_remove_name
 ```
+
+### conda python 解释器路径
+解释器路径是基于conda路径，这个容器是`/opt/conda/bin/python`，如果你创建了你的环境，你的解释器路径应该是`/opt/conda/envs/your_env_name/bin/python`。
+
+你的环境配置完成了。
+
 ## 额外教程：发现一个大数据集没有做目录映射？
 
 * 假设数据在宿主机上（可以是网络文件夹）的文件夹`/in/your/host/large/dataset`，c在容器中映射的目录`/your/container/map/directory/dataset`创建一个软链接，链接到大数据集文件夹，这样不额外占空间又能访问。
@@ -150,16 +156,6 @@ ssh-copy-id -f -i ~/.ssh/id_rsa_your-server your-server
 
 ### plugins: Python, Pylance(AI for python autocomplete)
 
-
-
-```
-
-
-## conda python 解释器路径
-解释器路径是基于conda路径，这个容器是`/opt/conda/bin/python`，如果你创建了你的环境，你的解释器路径应该是`/opt/conda/envs/your_env_name/bin/python`。
-
-享受你的环境。
-
 ## vscode 技巧
 
 ### 创建一个扩展名为 "*.ipynb "的文件，将得到一个jupyter notebook交互式python环境。
@@ -167,7 +163,7 @@ ssh-copy-id -f -i ~/.ssh/id_rsa_your-server your-server
 ### 插入`#%%`将`*.py`文件转换为互动模式。
 ![vscode_tip](./pngs/vscode_tip_.png)
 
-享受你的vscode。
+你的vscode配置完成了。
 
 
 
