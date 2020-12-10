@@ -154,11 +154,11 @@ ssh-copy-id -f -i ~/.ssh/id_rsa_your-server your-server
 
 ## vscode 容器环境（ssh到容器）
 
-### plugins: Python, Pylance(AI for python autocomplete)
+插件: Python, Pylance(AI for python autocomplete)
 
 ## vscode 技巧
 
-### 创建一个扩展名为 "*.ipynb "的文件，将得到一个jupyter notebook交互式python环境。
+创建一个扩展名为 "*.ipynb "的文件，将得到一个jupyter notebook交互式python环境。
 
 ### 插入`#%%`将`*.py`文件转换为互动模式。
 ![vscode_tip](./pngs/vscode_tip_.png)
