@@ -3,7 +3,7 @@
 >
 > ##  构建镜像（基于torch 官方镜像）
 >
-> > 如果需要cuda compiler请使用devel版镜像
+> > 如果需要cuda compiler请使用devel版镜像，即`Dockerfile`中改为`FROM pytorch/pytorch:1.6.0-cuda10.1-cudnn7-devel`
 
 * 更新了ubuntu 国内源
 * 添加了`黑体`中文
