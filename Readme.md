@@ -1,6 +1,9 @@
 # 设置 docker container + conda + vscode
 > 本教程旨在完成torch, tensorflow 等依赖于GPU的python虚拟环境
-##  构建镜像（基于torch 官方镜像）
+>
+> ##  构建镜像（基于torch 官方镜像）
+>
+> > 如果需要cuda compiler请使用devel版镜像
 
 * 更新了ubuntu 国内源
 * 添加了`黑体`中文
@@ -27,7 +30,7 @@ docker build -f liang.dockerfile -t gpu/conda-torch-tensorflow:liang .
 ```
 
 > 它从公共镜像添加了一个私有的git环境(添加了`id_rsa`)，并更新了root密码。
-    
+
 > 由`ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa`生成的`id_rsa`和`id_rsa.pub`复制到dockerfile的 相同的文件夹下。
 
 ## 创建容器
